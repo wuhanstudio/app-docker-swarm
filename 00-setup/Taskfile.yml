@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+  SWAPFILE_SIZE: 1G
+  SWAPFILE_NAME: /swapfile
+
+tasks:
+  install:
+    desc: Install Docker
+    cmds:
+      - curl -fsSL https://get.docker.com | sh
+
+  init:
+    desc: Initialize Docker Swarm
+    cmds:
+      - docker swarm init
+
+  token:
+    desc: Display join token
+    cmds:
+      - docker swarm join-token worker
+  swapfile:
+    desc: Add swapfile
+    cmds:
+      - sudo fallocate -l "{{.SWAPFILE_SIZE}}" "{{.SWAPFILE_NAME}}"
+      - sudo mkswap "{{.SWAPFILE_NAME}}"
+      - sudo swapon "{{.SWAPFILE_NAME}}"
+      - echo '"{{.SWAPFILE_NAME}}" none swap sw 0 0' | sudo tee -a /etc/fstab
+      - sudo sysctl vm.swappiness=10
+      - echo 'vm.swappiness=10' | sudo tee -a /etc/sysctl.conf

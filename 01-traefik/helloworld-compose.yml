@@ -1,0 +1,24 @@
+version: '3'
+services:
+  helloworld:
+    environment:
+      - ROOT_DOMAIN=${ROOT_DOMAIN}
+    image: tutum/hello-world:latest
+    networks:
+     - traefik-public
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.helloworld.rule=Host(`hello.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.helloworld.entrypoints=web"
+        - "traefik.http.services.helloworld.loadbalancer.server.port=80"
+        # TLS
+        - "traefik.http.routers.helloworlds.rule=Host(`hello.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.helloworlds.entrypoints=websecure"
+        - "traefik.http.routers.helloworlds.tls.certresolver=myhttpchallenge"
+        # Redirect
+        - "traefik.http.routers.helloworld.middlewares=https_redirect"
+        - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
+networks:
+  traefik-public:
+    external: true

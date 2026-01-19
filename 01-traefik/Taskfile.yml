@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+  ACME_EMAIL: wuhanstudio@qq.com
+  ROOT_DOMAIN: wuhanstudio.click
+
+tasks:
+  init:
+    desc: Initialize traefik overlay network and folders
+    cmds:
+      - docker network create --driver=overlay traefik-public
+      - mkdir ./letsencrypt
+
+  traefik:
+    desc: Install traefik ingress controller
+    cmds:
+      - docker stack deploy -c traefik-compose.yml traefik
+
+  helloworld:
+    desc: Install helloworld application
+    cmds:
+      - docker stack deploy -c helloworld-compose.yml helloworld
