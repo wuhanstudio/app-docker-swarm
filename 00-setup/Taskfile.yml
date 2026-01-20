@@ -21,8 +21,9 @@ tasks:
     desc: Display join token
     cmds:
       - docker swarm join-token worker
+
   swapfile:
-    desc: Add swapfile
+    desc: Add {{.SWAPFILE_SIZE}} swapfile at {{.SWAPFILE_NAME}} (Optional)
     cmds:
       - sudo fallocate -l "{{.SWAPFILE_SIZE}}" "{{.SWAPFILE_NAME}}"
       - sudo mkswap "{{.SWAPFILE_NAME}}"
