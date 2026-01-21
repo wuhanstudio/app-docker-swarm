@@ -3,22 +3,25 @@
 version: '3'
 
 vars:
-  ACME_EMAIL: wuhanstudio@qq.com
-  ROOT_DOMAIN: wuhanstudio.click
+  ACME_EMAIL_VAR: wuhanstudio@qq.com
+  LETSENCRYPT_DIR_VAR: /mnt/letsencrypt
 
 tasks:
   init:
     desc: Initialize traefik overlay network and folders
     cmds:
       - docker network create --driver=overlay traefik-public
-      - mkdir ./letsencrypt
 
   traefik:
     desc: Install traefik ingress controller
+    env:
+      ACME_EMAIL: '{{.ACME_EMAIL_VAR}}'
+      LETSENCRYPT_DIR: '{{.LETSENCRYPT_DIR_VAR}}'
     cmds:
+      - sudo mkdir -p {{.LETSENCRYPT_DIR_VAR}}
       - docker stack deploy -c traefik-compose.yml traefik
 
-  helloworld:
-    desc: Install helloworld application
+  status:
+    desc: Check deployment status
     cmds:
-      - docker stack deploy -c helloworld-compose.yml helloworld
+      - docker service ls

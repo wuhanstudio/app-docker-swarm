@@ -3,7 +3,7 @@
 version: '3'
 
 vars:
-  SWAPFILE_SIZE: 1G
+  SWAPFILE_SIZE: 2G
   SWAPFILE_NAME: /swapfile
 
 tasks:
@@ -11,6 +11,8 @@ tasks:
     desc: Install Docker
     cmds:
       - curl -fsSL https://get.docker.com | sh
+      - sudo usermod -aG docker `whoami`
+      - echo "Please re-login so that you can use docker without sudo"
 
   init:
     desc: Initialize Docker Swarm

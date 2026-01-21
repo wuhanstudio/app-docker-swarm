@@ -1,19 +1,17 @@
 version: '3'
 services:
   helloworld:
-    environment:
-      - ROOT_DOMAIN=${ROOT_DOMAIN}
-    image: tutum/hello-world:latest
+    image: nginxdemos/hello:0.4
     networks:
-     - traefik-public
+      - traefik-public
     deploy:
       labels:
         - "traefik.enable=true"
-        - "traefik.http.routers.helloworld.rule=Host(`hello.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.helloworld.rule=Host(`${HELLO_NAME}.${ROOT_DOMAIN}`)"
         - "traefik.http.routers.helloworld.entrypoints=web"
         - "traefik.http.services.helloworld.loadbalancer.server.port=80"
         # TLS
-        - "traefik.http.routers.helloworlds.rule=Host(`hello.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.helloworlds.rule=Host(`${HELLO_NAME}.${ROOT_DOMAIN}`)"
         - "traefik.http.routers.helloworlds.entrypoints=websecure"
         - "traefik.http.routers.helloworlds.tls.certresolver=myhttpchallenge"
         # Redirect
@@ -22,3 +20,4 @@ services:
 networks:
   traefik-public:
     external: true
+
