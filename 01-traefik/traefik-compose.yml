@@ -45,7 +45,7 @@ services:
 
  # The error pages server
  error:
-   image: nginx:latest
+   image: nginx:stable-alpine
    networks:
      - traefik-public
    volumes:
