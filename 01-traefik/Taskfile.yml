@@ -4,21 +4,16 @@ version: '3'
 
 vars:
   ACME_EMAIL_VAR: wuhanstudio@qq.com
-  LETSENCRYPT_DIR_VAR: /mnt/letsencrypt
 
 tasks:
-  init:
-    desc: Initialize traefik overlay network and folders
-    cmds:
-      - docker network create --driver=overlay traefik-public
-
   traefik:
     desc: Install traefik ingress controller
     env:
       ACME_EMAIL: '{{.ACME_EMAIL_VAR}}'
-      LETSENCRYPT_DIR: '{{.LETSENCRYPT_DIR_VAR}}'
     cmds:
-      - sudo mkdir -p {{.LETSENCRYPT_DIR_VAR}}
+      - sudo mkdir -p ./letsencrypt
+      - docker pull traefik:v3.6
+      - docker pull nginx:stable-alpine
       - docker stack deploy -c traefik-compose.yml traefik
 
   status:
