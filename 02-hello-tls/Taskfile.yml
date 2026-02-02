@@ -19,7 +19,6 @@ tasks:
     cmds:
       - docker stack ls
       - docker service ls
-      - sudo cat ./letsencrypt/acme.json | grep {{.ROOT_DOMAIN_VAR}}
 
   uninstall:
     desc: Uninstall helloworld application
