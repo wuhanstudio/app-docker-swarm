@@ -3,7 +3,7 @@ services:
   helloworld:
     image: nginxdemos/hello:0.4
     networks:
-      - traefik-public
+      - traefik_public
     deploy:
       labels:
         - "traefik.enable=true"
@@ -18,6 +18,6 @@ services:
         - "traefik.http.routers.helloworld.middlewares=https_redirect"
         - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
 networks:
-  traefik-public:
+  traefik_public:
     external: true
 
