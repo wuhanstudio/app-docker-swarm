@@ -12,7 +12,7 @@ services:
    deploy:
      labels:
        - 'traefik.enable=true'
-       - 'traefik.http.routers.catchall.rule=HostRegexp(`^.+\.wuhanstudio\.uk`)'
+       - 'traefik.http.routers.catchall.rule=HostRegexp(`.*\.${ROOT_DOMAIN}`)'
        - 'traefik.http.routers.catchall.entrypoints=web'
        - 'traefik.http.routers.catchall.priority=1'
        - 'traefik.http.routers.catchall.middlewares=error-pages-middleware'
