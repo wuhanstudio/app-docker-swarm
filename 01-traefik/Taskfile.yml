@@ -20,3 +20,9 @@ tasks:
     desc: Check deployment status
     cmds:
       - docker service ls
+
+  404:
+    desc: (App) Install Custom 404 Page
+    cmds:
+      - docker pull nginx:stable-alpine
+      - docker stack deploy -c 404-compose.yml 404
