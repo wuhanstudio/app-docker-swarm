@@ -3,9 +3,7 @@
 version: '3'
 
 vars:
-  LETSENCRYPT_DIR_VAR: /mnt/letsencrypt
   ROOT_DOMAIN_VAR: wuhanstudio.click
-  HELLO_NAME_VAR: hello
 
 env:
   ROOT_DOMAIN: '{{.ROOT_DOMAIN_VAR}}'
@@ -13,8 +11,6 @@ env:
 tasks:
   hello:
     desc: Install helloworld application
-    env:
-      HELLO_NAME: '{{.HELLO_NAME_VAR}}'
     cmds:
       - docker stack deploy -c hello-compose.yml hello
 
@@ -23,7 +19,7 @@ tasks:
     cmds:
       - docker stack ls
       - docker service ls
-      - sudo cat {{.LETSENCRYPT_DIR_VAR}}/acme.json | grep {{.ROOT_DOMAIN_VAR}}
+      - sudo cat ./letsencrypt/acme.json | grep {{.ROOT_DOMAIN_VAR}}
 
   uninstall:
     desc: Uninstall helloworld application
