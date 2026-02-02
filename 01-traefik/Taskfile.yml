@@ -4,7 +4,6 @@ version: '3'
 
 vars:
   ACME_EMAIL_VAR: wuhanstudio@qq.com
-  LETSENCRYPT_DIR_VAR: ./letsencrypt
   ROOT_DOMAIN_VAR: wuhanstudio.click
 
 env:
