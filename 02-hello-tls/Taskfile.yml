@@ -12,6 +12,7 @@ tasks:
   hello:
     desc: Install helloworld application
     cmds:
+      - docker pull nginxdemos/hello:0.4
       - docker stack deploy -c hello-compose.yml hello
 
   status:
@@ -19,6 +20,7 @@ tasks:
     cmds:
       - docker stack ls
       - docker service ls
+      - docker container exec -it `docker ps | grep -o traefik_traefik.*` cat /letsencrypt/acme.json | grep {{.ROOT_DOMAIN_VAR}}
 
   uninstall:
     desc: Uninstall helloworld application
