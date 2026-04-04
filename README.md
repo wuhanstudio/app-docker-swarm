@@ -4,13 +4,13 @@
 
 | Category            | Service            | BiliBili | YouTube |
 |---------------------|--------------------|----------|---------|
-| Cloud Services    | Overview  |          |         |
-| Cloud Services    | Public Cloud (AWS / GCP / Azure)  |          |         |
-| Cloud Services    | Private Cloud (OpenStack / Proxmox)  |          |         |
+| Cloud Services    | Overview             |  [Link](https://www.bilibili.com/video/BV1qrWbzHEaT)        |        |
+| Cloud Services    | Public Cloud (AWS / GCP / Azure)  |   [Link](https://www.bilibili.com/video/BV1FzktBUEKf)       |         |
+| Cloud Services    | Private Cloud (OpenStack / Proxmox)  |  [Link](https://www.bilibili.com/video/BV1bpk8BMEha)        |         |
 |   |                 |          |         |
-| Cluster Management  | GoTask             |          |         |
-| Cluster Management  | Traefik            |          |         |
-| Cluster Management  | Docker vs K3S      |          |         |
+| Cluster Management  | GoTask             |   [Link](https://www.bilibili.com/video/BV1TYwczqEVH)       |         |
+| Cluster Management  | Traefik            |   [Link](https://www.bilibili.com/video/BV1ADwjz3Eo5)       |         |
+| Cluster Management  | Docker vs K3S      |   [Link](https://www.bilibili.com/video/BV1854PzCEPW)       |         |
 | Cluster Management  | Docker             |          |         |
 | Cluster Management  | K3S                |          |         |
 |   |                 |          |         |
