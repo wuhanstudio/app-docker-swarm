@@ -1,7 +1,8 @@
 ## Docker Swarm
 
-> Tutorial: Setting Up a Docker Swarm
-
+> [!NOTE]
+> This tutorial uses Docker Swarm, here's another tutorial that uses [k3s](https://github.com/wuhanstudio/app-k3s-cluster).
+ 
 | Category            | Service            | BiliBili | YouTube |
 |---------------------|--------------------|----------|---------|
 | Cloud Services    | Overview             |  [Link](https://www.bilibili.com/video/BV1qrWbzHEaT)        |   [Link](https://www.youtube.com/watch?v=8znuiOSoADA&list=PLlRCv8NaDaU9mvICSXa9W4TNq_-ui89f8&index=1)     |
