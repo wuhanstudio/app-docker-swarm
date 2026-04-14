@@ -1,0 +1,22 @@
+version: '3'
+services:
+  x:
+    image: wuhanstudio/womginx:latest
+    networks:
+     - traefik_public
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.x.rule=Host(`x.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.x.entrypoints=web"
+        - "traefik.http.services.x.loadbalancer.server.port=80"
+        # TLS
+        - "traefik.http.routers.xs.rule=Host(`x.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.etheroads.entrypoints=websecure"
+        - "traefik.http.routers.xs.tls.certresolver=myhttpchallenge"
+        # Redirect
+        - "traefik.http.routers.x.middlewares=https_redirect"
+        - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
+networks:
+  traefik_public:
+    external: true
