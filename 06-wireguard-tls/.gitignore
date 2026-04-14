@@ -1,2 +1,3 @@
 wg-easy/wg0.conf
 wg-easy/wg0.json
+*.db

@@ -4,20 +4,18 @@ version: '3'
 
 vars:
   ROOT_DOMAIN_VAR: wuhanstudio.click
-  WG_PORT_VAR: 51820
-  WG_PASSWD_VAR: CHANGE_WG_PASSWORD
+  WG_PORT_VAR: 11970
 
 env:
   ROOT_DOMAIN: '{{.ROOT_DOMAIN_VAR}}'
   WG_PORT:     '{{.WG_PORT_VAR}}'
-  WG_PASSWD:   '{{.WG_PASSWD_VAR}}'
 
 tasks:
   wg:
     desc: WireGuard service
     dir: "wg-easy"
     cmds:
-      - docker pull weejewel/wg-easy:7
+      - docker pull ghcr.io/wg-easy/wg-easy:15
       - docker pull nginx:stable-alpine
       - docker compose up -d
       - cd ..
