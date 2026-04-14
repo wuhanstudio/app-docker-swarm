@@ -35,5 +35,5 @@ curl -1sLf 'https://dl.cloudsmith.io/public/task/task/setup.deb.sh' | sudo -E ba
 ```
 
 ```
-apt install task
+sudo apt install task
 ```
