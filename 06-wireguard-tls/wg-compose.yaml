@@ -1,0 +1,25 @@
+version: "3.3"
+
+services:
+  nginx:
+    image: nginx:stable-alpine
+    volumes:
+      - ./wg-easy/nginx.conf:/etc/nginx/conf.d/defaul.conf
+    deploy:
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.wg.rule=Host(`wg.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.wg.entrypoints=web"
+        - "traefik.http.services.wg.loadbalancer.server.port=80"
+        # TLS
+        - "traefik.http.routers.wgs.rule=Host(`wg.${ROOT_DOMAIN}`)"
+        - "traefik.http.routers.wgs.entrypoints=websecure"
+        - "traefik.http.routers.wgs.tls.certresolver=myhttpchallenge"
+        # Redirect
+        - "traefik.http.routers.wg.middlewares=https_redirect"
+        - "traefik.http.middlewares.https_redirect.redirectscheme.scheme=https"
+    networks:
+      - traefik_public
+networks:
+  traefik_public:
+    external: true
