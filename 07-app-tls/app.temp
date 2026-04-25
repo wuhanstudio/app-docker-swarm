@@ -1,0 +1,18 @@
+server {
+    listen       80;
+    server_name  _;
+
+    # other error pages here:
+    # error_page  403    /403.html;
+
+    proxy_set_header Accept-Encoding "";
+
+    sub_filter_types text/html;
+    sub_filter_once off;
+
+    sub_filter 'ROOT_DOMAIN' '${ROOT_DOMAIN}';
+
+    location / {
+        root  /usr/share/nginx/html;
+    }
+}
