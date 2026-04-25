@@ -17,12 +17,13 @@
 |   |                 |          |         |
 | Utility Services    | Womginx (VPN)      |          |         |
 | Utility Services    | WireGuard (VPN)    |          |         |
-| Utility Services    | Linx               |          |         |
-| Utility Services    | ByteBin            |          |         |
 |   |                 |          |         |
+| Applications        | Linx               |          |         |
+| Applications        | ByteBin            |          |         |
 | Applications        | OwnCloud           |          |         |
 | Applications        | Gitea              |          |         |
 | Applications        | CodiMD             |          |         |
+| Applications        | Dozzle             |          |         |
 | Applications        | Matomo             |          |         |
 | Applications        | Ackee              |          |         |
 
