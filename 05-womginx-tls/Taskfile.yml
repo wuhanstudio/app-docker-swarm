@@ -12,7 +12,7 @@ tasks:
   womginx:
     desc: Install womginx application (VPN)
     cmds:
-      - docker pull wuhanstudio/womginx:latest
+      - docker pull wuhanstudio/womginx:v3.10.4
       - docker stack deploy -c x-compose.yml womginx
 
   status:
