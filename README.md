@@ -18,6 +18,7 @@
 | Utility Services    | Womginx (VPN)      |          |         |
 | Utility Services    | WireGuard (VPN)    |          |         |
 |   |                 |          |         |
+| Applications        | Nginx              |          |         |
 | Applications        | Linx               |          |         |
 | Applications        | ByteBin            |          |         |
 | Applications        | OwnCloud           |          |         |
