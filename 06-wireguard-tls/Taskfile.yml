@@ -4,7 +4,7 @@ version: '3'
 
 vars:
   ROOT_DOMAIN_VAR: wuhanstudio.click
-  WG_PORT_VAR: 11970
+  WG_PORT_VAR: 31820
 
 env:
   ROOT_DOMAIN: '{{.ROOT_DOMAIN_VAR}}'
