@@ -21,12 +21,12 @@
 | Applications        | Nginx              |          |         |
 | Applications        | Linx               |          |         |
 | Applications        | ByteBin            |          |         |
+| Applications        | Dozzle             |          |         |
 | Applications        | OwnCloud           |          |         |
 | Applications        | Gitea              |          |         |
 | Applications        | CodiMD             |          |         |
-| Applications        | Dozzle             |          |         |
-| Applications        | Matomo             |          |         |
 | Applications        | Ackee              |          |         |
+| Applications        | Matomo             |          |         |
 
 ![](overview.png)
 
