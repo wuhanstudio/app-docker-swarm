@@ -27,6 +27,8 @@
 | Applications       | CodiMD                              |                                                      |                                                                                                      |
 | Applications       | Ackee                               |                                                      |                                                                                                      |
 | Applications       | Matomo                              |                                                      |                                                                                                      |
+|                    |                                     |                                                      |                                                                                                      |
+| Cloud Services     | Conclusion                               |                                                      |                                                                                                      |
 
 ![](overview.png)
 
