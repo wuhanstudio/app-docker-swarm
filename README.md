@@ -28,7 +28,7 @@
 | Applications       | Ackee                               |                                                      |                                                                                                      |
 | Applications       | Matomo                              |                                                      |                                                                                                      |
 |                    |                                     |                                                      |                                                                                                      |
-| Cloud Services     | Conclusion                               |                                                      |                                                                                                      |
+| Cloud Services     | Summary                               |                                                      |                                                                                                      |
 
 ![](overview.png)
 
